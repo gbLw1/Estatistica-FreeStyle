@@ -5,21 +5,21 @@ public class Program
     public static void Main(string[] args)
     {
         Write("Infome a % de sucesso em decimal: ");
-        double s = double.Parse(ReadLine());
+        double s = double.Parse(ReadLine()!);
 
         Write("Infome a % de falha em decimal: ");
-        double f = double.Parse(ReadLine());
+        double f = double.Parse(ReadLine()!);
 
-        Write("Infome a quantidade da amostra: ");
-        double n = double.Parse(ReadLine());
+        Write("Infome o número de repetições (n): ");
+        double n = double.Parse(ReadLine()!);
 
         int retry = 1;
         do
         {
-            Write("Informe o número de possibilidades (x=?): ");
-            double r = double.Parse(ReadLine());
+            Write("Informe o número de possibilidades de sucesso (x): ");
+            double r = double.Parse(ReadLine()!);
 
-            Func<double, double> fat = null;
+            Func<double, double> fat = null!;
             fat = x => x <= 1 ? 1 : x * fat(x - 1);
 
             double c = fat(n) / (fat(r) * fat(n - r));
@@ -31,7 +31,7 @@ public class Program
 
 
             Write("Digite {1} para realizar outra operação: ");
-            retry = int.Parse(ReadLine());
+            retry = int.Parse(ReadLine()!);
         } while (retry == 1);
     }
 }
